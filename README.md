@@ -1,14 +1,24 @@
 # Polaris Food Project Documentation
 To keep things simple and get started calling the apis
-1. clone the repo
-2. import the postman [collection](Polaris-Food.postman_collection.json) in your postman client
-3. run the apis server using docker (steps mentioned below) or run in local system with latest go 
+1. Clone the repo
+2. Import the postman [collection](Polaris-Food.postman_collection.json) in your postman client, 
+   it also has the documentation about all the request endpoints and parameters and json data, 
+   you can also try this link, not sure if this works - [postman public](https://api.postman.com/collections/8034719-33e43fed-ddc8-4a7b-ac95-0e7e5dd7e55b?access_key=PMAT-01HQG9V0RB1T99ZTRMCX6VTDP1)
+3. Run the apis server using docker (steps mentioned below) or run in local system with latest go 
    installed (steps mentioned below) to see live changes with sqlitedb which can be accessed with 
    any jetbrains ide
 4. The sqlite db file is present in the root directory [foodelivery.db](fooddelivery.db)
 5. Once the api server starts at localhost:8080, start using the apis through postman
-6. To understand the database structure with relations, refer to [draw.io](https://drive.google.
-   com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
+6. To understand the database structure with relations, refer to [draw.io](https://drive.google.com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
+
+# INDEX
+1. [Project structure](#project-structure)
+2. [Points to note before running the project](#points-to-note-before-running-the-project)
+3. [Running in docker](#running-in-docker)
+4. [Running locally with go](#running-locally-with-go)
+5. [API Endpoints](#api-endpoints) - get postman colection here - [polaris-food-collection](Polaris-Food.postman_collection.json)
+6. [Services](#services)
+7. [Database tables](#database-tables-structure) - get er diagram here - [polaris-food-draw](https://drive.google.com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
 
 ## Project Structure
 
@@ -38,16 +48,15 @@ To keep things simple and get started calling the apis
 
 ## Points to note before running the project
 * A simple sqlite database (file fooddelivery.db) is being used here for demo purposes, it's not 
-scalable solution but just to represent the working code
+scalable solution but just to represent end to end working code.
 * If run through docker, it will be difficult to access the db, because docker is putting 
-everything inside the container including db file, and vendor directory which makes it heavy
-* if you want to access the db simultaneously while calling the apis, tun the server in local 
+everything inside the container including db file, and vendor directory which makes it difficult 
+  to access the db file from inside the container.
+* if you want to access the db simultaneously while calling the apis, run the api server in local 
   system using go installed in your system, mentioned the commands below
 
-
 ## Running in docker
-
-### Build and run the application using Docker:
+Build and run the application using Docker:
 takes about 5 minutes to build the images, please be patient
 
 ```bash
@@ -57,7 +66,7 @@ docker run -p 8080:8080 --name my-food-delivery-app food-delivery-app`
 After the docker image is run, access the api endpoints at localhost:8080
 
 ## Running locally with go
-### Prerequisites - go 1.21 or later is installed
+Prerequisites - go 1.21 or later is installed
 
 ```bash
 go build -o ./out/food-delivery-main ./cmd/food-delivery-main
@@ -66,8 +75,8 @@ chmod +x ./out/food-delivery-main
 ```
 After the project is run, access the api endpoints at localhost:8080
 
-
 ## API Endpoints
+Import the postman collection from here - [collection](Polaris-Food.postman_collection.json)
 The API is organized around RESTful principles, providing access to resources such as users,
 riders, restaurants, orders, and ratings.
 
@@ -120,6 +129,7 @@ Currently interacting with database only
     * SubmitRatings
 
 ## Database Tables structure
+you can also check the er diagram at draw.io website -> [link](https://drive.google.com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
 ### Coupon Table
 
 | Column Name    | Data Type        | Constraints |
