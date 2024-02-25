@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "33e43fed-ddc8-4a7b-ac95-0e7e5dd7e55b",
+		"name": "Polaris-Food",
+		"description": "```\nThe API is organized around RESTful principles, providing access to resources such as users,riders, restaurants, orders, and ratings.\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8034719"
+	},
+	"item": [
+		{
+			"name": "UsersEndpoints",
+			"item": [
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Username\": \"user6\",\n  \"Email\": \"user6@example.com\",\n  \"PasswordHash\": \"user6\",\n  \"Role\": \"customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/register/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"register",
+								"user"
+							]
+						},
+						"description": "register a user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsersOrdersHistory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/users/:id/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id",
+								"orders"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "get all orders created by this user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsersCoupons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/users/:id/coupons",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id",
+								"coupons"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						},
+						"description": "get all coupons avalable for this user"
+					},
+					"response": []
+				}
+			],
+			"description": "all endpoints for users\n\n```\n * RegisterUser\n    * GetUserOrders\n    * GetUserCoupons\n\n ```"
+		},
+		{
+			"name": "RiderEndpoints",
+			"item": [
+				{
+					"name": "RegisterRider",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": {\n    \"Username\": \"rider6\",\n    \"Email\": \"rider6@example.com\",\n    \"PasswordHash\": \"rider6\",\n    \"Role\": \"Rider\"\n  },\n  \"riderProfile\": {\n    \"AvailabilityStatus\": true,\n    \"Latitude\": 40.7190,\n    \"Longitude\": -74.0990\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/register/rider",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"register",
+								"rider"
+							]
+						},
+						"description": "regsiter a new rider"
+					},
+					"response": []
+				},
+				{
+					"name": "NearestRider",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/riders/nearest/:restaurantId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"riders",
+								"nearest",
+								":restaurantId"
+							],
+							"variable": [
+								{
+									"key": "restaurantId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "get the nearest available rider to this restaurant who is not delivering food"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRidersLocation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"latitude\": 100.90,\n  \"longitude\": 90.33\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/riders/:id/location",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"riders",
+								":id",
+								"location"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						},
+						"description": "given the rider's longitude and latitude, update his/her location"
+					},
+					"response": []
+				},
+				{
+					"name": "GetRidersCompletedOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/riders/:id/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"riders",
+								":id",
+								"orders"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						},
+						"description": "get all orders for this rider that he/she has delivered"
+					},
+					"response": []
+				}
+			],
+			"description": "all rider endpoints\n\n```\n* RegisterRider\n* UpdateRiderLocation\n* GetRiderOrders\n* GetNearestAvailableRider\n\n ```"
+		},
+		{
+			"name": "RestaurantEndpoints",
+			"item": [
+				{
+					"name": "RegisterRestaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"restaurant\": {\n    \"Name\": \"rest3\",\n    \"Address\": \"delhi\",\n    \"DeliveryTime\": 60,\n    \"IsOpen\": true,\n    \"Latitude\": 41.7138,\n    \"Longitude\": -73.0050\n  },\n  \"menuItems\": [\n    {\n      \"Name\": \"roti\",\n      \"Description\": \"tasty dish\",\n      \"Price\": 10.00,\n      \"CategoryID\": 2\n    },\n    {\n      \"Name\": \"daal\",\n      \"Description\": \"Another tasty dish\",\n      \"Price\": 150.00,\n      \"CategoryID\": 2\n    },\n    {\n      \"Name\": \"paneer\",\n      \"Description\": \"tasty paneer\",\n      \"Price\": 200.00,\n      \"CategoryID\": 2\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/register/restaurant",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"register",
+								"restaurant"
+							]
+						},
+						"description": "register a new restaurant along with it's menu items"
+					},
+					"response": []
+				},
+				{
+					"name": "SuggestRestaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/restaurants/suggest?delivery_time=61&food_category=north-indian",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								"suggest"
+							],
+							"query": [
+								{
+									"key": "delivery_time",
+									"value": "61"
+								},
+								{
+									"key": "food_category",
+									"value": "north-indian"
+								}
+							]
+						},
+						"description": "suggest restaaurants to the user, given food category like chinese or other and within desired delivery time"
+					},
+					"response": []
+				},
+				{
+					"name": "GetMenu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/restaurants/:id/menu",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								":id",
+								"menu"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						},
+						"description": "gets all the menu items for a given restaurant"
+					},
+					"response": []
+				}
+			],
+			"description": "all restaurant endpoints\n\n```\n* RegisterRestaurants\n* GetMenu\n* SuggestRestaurants\n\n ```"
+		},
+		{
+			"name": "OrderEndpoints",
+			"item": [
+				{
+					"name": "CreateOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"order\": {\n    \"UserID\": 1,\n    \"RestaurantID\": 2,\n    \"TotalPrice\": 100,\n    \"DeliveryAddress\": \"sahibabad\"\n  },\n  \"orderItems\": [\n    {\n      \"menuItemId\": 4,\n      \"quantity\": 1,\n      \"Price\": 50.0\n    },\n    {\n      \"menuItemId\": 5,\n      \"quantity\": 1,\n      \"Price\": 50.0\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/orders/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"create"
+							]
+						},
+						"description": "create a new order"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"OrderID\": 2,\n  \"Status\": \"accepted\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/orders/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"update"
+							]
+						},
+						"description": "accept or decline a created order"
+					},
+					"response": []
+				}
+			],
+			"description": "```\n* CreateOrder\n* UpdateOrder\n\n ```"
+		},
+		{
+			"name": "RatingsEndpoint",
+			"item": [
+				{
+					"name": "SubmitRating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"OrderId\": 2,\n  \"RatedById\": 2,\n  \"RatedToId\": 7,\n  \"Stars\": 2.9,\n  \"Comment\": \"bekkaar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/ratings/submit",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ratings",
+								"submit"
+							]
+						},
+						"description": "submit a rating done by a user to rider or from rider to user"
+					},
+					"response": []
+				}
+			],
+			"description": "```\n* SubmitRatings\n\n ```"
+		}
+	]
+}

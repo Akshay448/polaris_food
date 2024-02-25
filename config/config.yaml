@@ -1,0 +1,4 @@
+# config.yaml
+database:
+  type: "sqlite" # Can be "postgres", "mysql", etc.
+  dsn: "fooddelivery.db" # Database connection string, adjust based on type
