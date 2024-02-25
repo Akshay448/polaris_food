@@ -2,10 +2,13 @@
 To keep things simple and get started calling the apis
 1. clone the repo
 2. import the postman [collection](Polaris-Food.postman_collection.json) in your postman client
-3. run the apis using [docker](#Running in docker) or run through golang to see live changes 
-   with sqlitedb which can be accessed with any jetbrains ide
-4. Once the api server starts at localhost:8080, start using the apis through postman
-5. To understand the database structure with relations, refer to [draw.io](https://drive.google.com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
+3. run the apis server using docker (steps mentioned below) or run in local system with latest go 
+   installed (steps mentioned below) to see live changes with sqlitedb which can be accessed with 
+   any jetbrains ide
+4. The sqlite db file is present in the root directory [foodelivery.db](fooddelivery.db)
+5. Once the api server starts at localhost:8080, start using the apis through postman
+6. To understand the database structure with relations, refer to [draw.io](https://drive.google.
+   com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
 
 ## Project Structure
 
