@@ -18,8 +18,6 @@ func SubmitRating(ratingsService ratings.RatingsService) gin.HandlerFunc {
 			return
 		}
 
-		// Validate the Ratings data (You may want to implement your validation logic here)
-
 		// Call ratings service function defined with the ratings interface to save it to the database
 		err := ratingsService.SubmitRatings(rating)
 		if err != nil {
