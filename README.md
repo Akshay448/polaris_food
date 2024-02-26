@@ -18,7 +18,7 @@ To keep things simple and get started calling the apis
 3. [Running in docker](#running-in-docker)
 4. [Running locally with go](#running-locally-with-go)
 5. [API Endpoints](#api-endpoints) - get postman colection here - [polaris-food-collection](Polaris-Food.postman_collection.json)
-6. [Services](#services)
+6. [Services](#services) - logic for each function defined here - [polaris-food-function](https://drive.google.com/file/d/17gfU6cTeVffqA2tw3702JE_GqVjnIaY5/view?usp=sharing)
 7. [Database tables](#database-tables-structure) - get er diagram here - [polaris-food-draw](https://drive.google.com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
 
 ## Project Structure
