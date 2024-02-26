@@ -87,6 +87,8 @@ func (s *riderService) GetNearestAvailableRider(restaurantID uint) (models.Rider
 	}
 
 	// Retrieve all available riders
+	// there should also be a filter where city = "city of the restaurant"
+	// it will reduce the number of available riders to loop over
 	if err := s.db.Where("availability_status = ? and is_delivering = ?", true,
 		false).Find(&availableRiders).Error; err != nil {
 		return models.RiderProfile{}, err

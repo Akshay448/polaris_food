@@ -10,6 +10,7 @@ To keep things simple and get started calling the apis
 4. The sqlite db file is present in the root directory [foodelivery.db](fooddelivery.db)
 5. Once the api server starts at localhost:8080, start using the apis through postman
 6. To understand the database structure with relations, refer to [draw.io](https://drive.google.com/file/d/1vPhfVjy2-TqiDGi45_u8HJC4tAGrdHIV/view?usp=sharing)
+7. To understand logic/algorithms used for functions, refer to [polaris-food-function](https://drive.google.com/file/d/17gfU6cTeVffqA2tw3702JE_GqVjnIaY5/view?usp=sharing)
 
 # INDEX
 1. [Project structure](#project-structure)
